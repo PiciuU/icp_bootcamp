@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-import { chat_backend } from 'declarations/chat_backend/index';
+import { blog_backend } from 'declarations/blog_backend/index';
 let greeting = ref('');
 
 async function handleSubmit(e) {
   e.preventDefault();
   const target = e.target;
   const name = target.querySelector('#name').value;
-  await chat_backend.greet(name).then((response) => {
+  await blog_backend.greet(name).then((response) => {
     greeting.value = response;
   });
 }

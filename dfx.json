@@ -1,19 +1,19 @@
 {
   "canisters": {
-    "chat_backend": {
-      "candid": "src/chat_backend/chat_backend.did",
-      "package": "chat_backend",
+    "blog_backend": {
+      "candid": "src/blog_backend/blog_backend.did",
+      "package": "blog_backend",
       "type": "rust"
     },
-    "chat_frontend": {
+    "blog_frontend": {
       "dependencies": [
-        "chat_backend"
+        "blog_backend"
       ],
       "source": [
-        "src/chat_frontend/dist"
+        "src/blog_frontend/dist"
       ],
       "type": "assets",
-      "workspace": "chat_frontend"
+      "workspace": "blog_frontend"
     }
   },
   "defaults": {

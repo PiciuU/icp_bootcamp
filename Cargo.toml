@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "src/chat_backend"
+    "src/blog_backend"
 ]
 resolver = "2"
