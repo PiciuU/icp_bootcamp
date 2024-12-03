@@ -1,18 +1,20 @@
 use std::cell::RefCell;
 
+use crate::blog::Blog;
+
 mod blog;
 
 thread_local! {
-    static BLOGS: RefCell<Vec<String>> = RefCell::new(Vec::new());
+    static BLOGS: RefCell<Vec<Blog>> = RefCell::new(Vec::new());
 }
 
-
 #[ic_cdk::update]
-fn add_blog(new_blog: String) {
-    BLOGS.with(|blogs: &RefCell<Vec<String>>| blogs.borrow_mut().push(new_blog));
+fn add_blog(title: String, date: u32, content: String, tags: Vec<String>) {
+    let blog: Blog = Blog::new(title, date, content, tags);
+    BLOGS.with(|blogs: &RefCell<Vec<Blog>>| blogs.borrow_mut().push(blog));
 }
 
 #[ic_cdk::query]
-fn get_blogs() -> Vec<String> {
-    BLOGS.with(|blogs: &RefCell<Vec<String>>| blogs.borrow().clone())
+fn get_blogs() -> Vec<Blog> {
+    BLOGS.with(|blogs: &RefCell<Vec<Blog>>| blogs.borrow().clone())
 }
