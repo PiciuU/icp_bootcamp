@@ -16,6 +16,7 @@ type Result = variant { Ok : Blog; Err : text; };
 
 service : {
     "add_config": (Config) -> ();
+    "get_config": () -> (Config) query;
     "add_blog": (text, text, vec text) -> (Result);
     "get_blogs": () -> (vec Blog) query;
 }
