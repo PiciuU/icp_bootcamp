@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-size: 62.5%;
+    color-scheme: only light;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    font-weight: normal;
+    margin: 0;
+    position: relative;
+  }
+
+  html,
+  body {
+      background: white;
+      color: black;
+      font-family:
+          'Segoe UI',
+          sans-serif;
+      font-size: 1.6rem;
+      height: 100%;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+  }

@@ -1,32 +1,60 @@
 <template>
-    <main>
-        <h1>ICP Bootcamp Blog</h1>
+    <main class="w-full max-w-7xl mx-auto flex flex-col items-center gap-4 py-5">
+        <h1 class="text-5xl mb-5">ICP Bootcamp Blog</h1>
         <div>
-            <form action="#" @submit="handleSubmit">
-                <h2>Add new blog</h2>
+            <form
+                action="#"
+                @submit.prevent="handleSubmit"
+                class="flex flex-col border border-black p-5 gap-4 w-[700px] mb-10"
+            >
+                <h2 class="text-3xl font-bold">Add new blog</h2>
                 <div>
-                    <label for="title">Title: </label>
-                    <input id="title" type="text" v-model="formData.title"/>
+                    <label for="title" class="block font-medium mb-1">Title:</label>
+                    <input
+                        id="title"
+                        type="text"
+                        v-model="formData.title"
+                        class="w-full border border-black px-4 py-2"
+                    />
                 </div>
                 <div>
-                    <label for="content">Content: </label>
-                    <input id="content" type="text" v-model="formData.content"/>
+                    <label for="content" class="block font-medium mb-1">Content:</label>
+                    <textarea
+                        id="content"
+                        type="text"
+                        v-model="formData.content"
+                        class="w-full border border-black px-4 py-2"
+                    ></textarea>
                 </div>
                 <div>
-                    <label for="tags">Tags: </label>
-                    <input id="tags" type="text" v-model="formData.tags"/>
+                    <label for="tags" class="block font-medium mb-1">Tags:</label>
+                    <input
+                        id="tags"
+                        type="text"
+                        v-model="formData.tags"
+                        class="w-full border border-black px-4 py-2"
+                    />
                 </div>
-                <button type="submit">Add Blog</button>
+                <button
+                    type="submit"
+                    class="bg-sky-700 text-white rounded-md py-2 px-4 hover:bg-sky-600 ease-in duration-300"
+                >
+                    Add Blog
+                </button>
             </form>
         </div>
 
-        <div class="blog">
-            <h2>Our blogs:</h2>
-            <div class="blog__entry" v-for="(blog, key) in blogs" :key="key">
-                <p>Title: {{ blog.title }}</p>
-                <p>Content: {{ blog.content }}</p>
-                <p>Tags: {{ blog.tags.toString() }}</p>
-                <p>Date: {{ blog.date }}</p>
+        <div class="w-[700px]">
+            <h2 class="text-2xl font-bold mb-4">Our blogs:</h2>
+            <div
+                v-for="(blog, key) in blogs"
+                :key="key"
+                class="border border-black p-4 mb-10"
+            >
+                <p class="mb-2"><span class="font-semibold">Title:</span> {{ blog.title }}</p>
+                <p class="mb-2"><span class="font-semibold">Content:</span> {{ blog.content }}</p>
+                <p class="mb-2"><span class="font-semibold">Tags:</span> {{ blog.tags.toString() }}</p>
+                <p class="mb-2"><span class="font-semibold">Date:</span> {{ blog.date }}</p>
             </div>
         </div>
     </main>
@@ -86,45 +114,3 @@
 
 
 </script>
-
-<style lang="css">
-    main {
-        width: 100%;
-        max-width: 1440px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 20px 0px;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid black;
-        padding: 20px;
-        gap: 15px;
-        width: 700px;
-    }
-
-    input {
-        width: 100%;
-    }
-
-    button[type=submit] {
-        padding: 5px 10px;
-    }
-
-    .blog {
-       display: flex;
-       flex-direction: column;
-       width: 700px;
-       gap: 15px;
-    }
-
-    .blog__entry {
-        border: 1px solid black;
-        padding: 10px 25px;
-    }
-</style>
